@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+		<meta http-equiv="X-UA-Compatible" content="IE-egge,chrome=1" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="icon" href="img/favicon.ico"/>
+		<link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body >
+		<div class="container">
+			<div class="st-container">
+				
+				<!--导航栏begin-->
+			<input class="clr1" type="radio" name="radio-set" id="st-control-1" checked="checked" />
+			<a href="#st-panel-1">基本资料</a>
+			<input class="clr1" type="radio" name="radio-set" id="st-control-2"  />
+			<a href="#st-panel-2">专业技能</a>
+			<input class="clr1" type="radio" name="radio-set" id="st-control-3"  />
+			<a href="#st-panel-3">未来规划</a>
+			<input class="clr1" type="radio" name="radio-set" id="st-control-4"  />
+			<a href="#st-panel-4">自我评价</a>
+			<input class="clr1" type="radio" name="radio-set" id="st-control-5"  />
+			<a href="#st-panel-5">联系方式</a>
+			<!--导航栏end-->
+			<div class="st-scroll">
+				
+				<section class="st-panel" id="st-panel-1">
+					
+					<div class="st-right">
+						
+						<h2>基本资料</h2>
+						<!--
+							从recards.php中获取json数据用表格循环到页面
+						-->
+						
+						<table  ng-controller="myCtre">
+			               <tr ng-repeat="x in name">
+				          <th>{{x.x1[0].Name}}</th>
+				           <td>{{x.x1[0].Value}}</td>
+				            <th>{{x.x1[1].Name}}</th>
+				           <td>{{x.x1[1].Value}}</td>
+			              </tr>
+		                </table>
+		              
+					</div>
+					
+				</section>
+				<section class="st-panel" id="st-panel-2">
+					<div class="st-right">
+						<h2>专业技能</h2>
+						<div class="skill">
+							<h3>PC端:</h3>
+							<p>
+								<ul>
+									<li> 熟练使用HTML CSS HTML5  CSS3  javascript 等前端语言;</li>
+									<li> 熟练使用Photoshop、HBuilder、Dreamrever 等前端工具</li>
+									<li> 熟练使用bootstrap jquery等前端框架</li>
+									<li> 熟悉angularJS并不断自学nodeJs和react.Js</li>
+								</ul>                                                            
+                            </p>
+                            <h3>移动端:</h3>
+                            <p>
+                            	<ul>
+                            		<li> 熟练使用rem布局以及一些移动端的框架</li>
+                            		<li> 对微信小程序特别感兴趣，最近在研究一些关于微信小程序的开发</li>
+                            	</ul>
+                            </p>
+                            <h3>其它:</h3>
+                            <p>
+                            	<ul>
+                            		<li> 经验是积累出来的，希望贵公司能给我一个展现的平台。相信通过我的努力会把工作做得最好。祝：贵公司蒸蒸日上</li>
+                            	</ul>
+                            </p>
+						</div>
+					</div>
+				</section>
+				<section class="st-panel" id="st-panel-3">
+					<div class="st-right">
+						<h2>未来规划</h2>
+						
+						 <div class="planning">
+						 	<ul>
+						 		<li>就目前情况而言，我急需寻找一份工作去寻求稳定发展，并不断提升自己的职业技能，不断融入计算机这个行业。</li>
+						 		<li>人总是不会那么满足。前端这行发展快，更新更快，各种不同的框架层出不穷。在业余时间去不断学习新的东西，力求跟上时代的步伐。</li>
+						 		<li>在未来的三到五年的时间内，在一家公司中不断提升自己，寻求稳定的发展，并拥有属于自己的圈子。</li>
+						 		<li>我自我感觉我的设计审美能力不是很好，因此我打算往偏算法方向发展，去寻求更好的发展</li>
+						 	</ul>
+						 </div>
+						
+					</div>
+				</section>
+				<section class="st-panel" id="st-panel-4">
+					<div class="st-right">
+						<h2>自我评价</h2>
+						<div class="assess">
+						<ul>
+						 		<li>热爱学习，拥有良好的团队合作精神，能迅速适应新的环境，融入新的集体，易和他人相处，有良好的亲和力。</li>
+						 		<li>喜欢不断尝试新的东西，拥有良好的自学能力和学习方法。</li>
+						 		<li> 有时觉得自己更适合去做一个聆听着，去听诉别人的建议，去和他人更好的相处</li>
+						</ul>
+						</div> 	
+					</div>
+				</section>
+				<section class="st-panel" id="st-panel-5">
+					<div class="st-right">
+						<h2>联系方式</h2>
+						<form name="myForm" ng-controller="myCtrl" action="" novalidate>
+		 	              <p><label for="name">姓名 :</label>
+							<input type="text" name="user" id="user" ng-model="user" required/>
+							<span  ng-show="myForm.user.$dirty && myForm.user.$invalid">
+								<span ng-show="myForm.user.$error.required">姓名不能为空</span>
+							</span>		
+						</p>
+						<p><label for="email">邮箱 :</label>
+							<input type="email" name="email" id="email" ng-model="email" required/>
+							<span  ng-show="myForm.email.$dirty && myForm.email.$invalid">
+								<span ng-show="myForm.email.$error.required">邮箱不能为空</span>
+								<span ng-show="myForm.email.$error.email">邮箱格式不正确</span>
+							</span>
+						</p>
+						<p><label>请留言 :</label>
+							<textarea cols="80" rows="10" required="required" ></textarea></p>
+						<p><label for="submit">&nbsp;</label>
+							<input  type="submit" id="subimt" value="确认发送" ng-disabled="myForm.user.$dirty && myForm.user.$invalid || 
+					           myForm.email.$dirty && myForm.email.$invalid" />
+						</p>
+		                </form>
+					</div>
+					
+				</section>
+			</div>
+			</div>
+			
+		</div>
+		         <script type="text/javascript">
+						var app=angular.module('myApp',[]);
+						app.controller("myCtre",function($scope,$http){
+							$http.get("recards.php").success(function(response){
+								$scope.name=response.recards;
+							})
+						});
+						app.controller("myCtrl",function($scope){
+							$scope.user="姚辉";
+							$scope.email="y1172144887@qq.com";
+						})
+					</script>
+	</body>
+</html>
